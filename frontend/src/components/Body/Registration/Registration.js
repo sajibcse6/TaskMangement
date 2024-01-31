@@ -12,12 +12,8 @@ const Registration = () => {
     const register = async() => {
         let item = {username, email, password};
         console.log(item);
-        axios.post('http://127.0.0.1:8000/api/register', {
-            username: "oweurlkjl",
-            email : "sajibsahadf334@gmail.com",
-            password: "1234567"
-        })
-        .then((res)=>{console.log(res)})
+        axios.post('http://127.0.0.1:8000/api/register',item)
+        .then((res)=>{localStorage.setItem("token", res.data.token);})
         .catch((err)=>console.error('Error:', err));
     }
 
@@ -30,7 +26,7 @@ const Registration = () => {
                         <input type="text" onChange={(event) => { setUsername(event.target.value) }} id="username" placeholder="Enter username" />
                         <input type="text" onChange={(event) => { setEmail(event.target.value) }} id="email" placeholder="Enter email" />
                         <input type="password" onChange={(event) => { setPassword(event.target.value) }} id="pw" placeholder="Set Password" /> <br />
-                        <button onClick={register} className="bg-primary">Signup</button>
+                        <button onClick={register} className="bg-primary">Register</button>
                     </div>
                 </div>
             </div>

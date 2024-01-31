@@ -54,6 +54,27 @@ class TaskController extends Controller
         }
     }
 
+    public function task(Request $request, $id)
+    {
+        $user = JWTAuth::setToken($request->token)->toUser();
+
+        if($user) {
+            if(Task::where('id', $id)->exists()) {
+                $task= Task::find($id);
+                return response()->json($task);
+            } else {
+                return response()->json([
+                  "message" => "Task not found"
+                ], 404);
+            }
+        }
+        else {
+            return response()->json([
+                "message" => "Please Login to Create Task"
+            ], 401);
+        }
+    }
+
     public function update(Request $request, $id)
     {
         $user = JWTAuth::setToken($request->token)->toUser();

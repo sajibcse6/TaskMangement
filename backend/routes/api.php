@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::post('/login','UserController@authenticate');
 Route::post('/getuser', [UserController::class, 'getauthuser']);
 Route::post('/tasks', [TaskController::class, 'create']);
 Route::post('/tasklist', [TaskController::class, 'tasklist']);
+Route::put('task/{id}', [TaskController::class, 'task']);
 Route::put('/taskupdate/{id}', [TaskController::class, 'update']);
 Route::put('/taskdelete/{id}', [TaskController::class, 'delete']);
 
