@@ -28,4 +28,10 @@ class UserController extends Controller
 
         return response()->json(compact('user', 'token'), 201);
     }
+
+    public function getauthuser(Request $request)
+    {
+        $user = JWTAuth::setToken($request->token)->toUser();
+        return response()->json($user);
+    }
 }
