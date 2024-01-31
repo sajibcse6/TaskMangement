@@ -1,0 +1,88 @@
+.register {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#signupCard {
+    margin: auto;
+    margin-top: 40px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    border-radius: 5px;
+    width: 330px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#form_inp > h2 {
+    margin-top: 1px;
+    color: #404145;
+    margin-bottom: 25px;
+}
+
+#signin > input {
+    width: 88%;
+    height: 30px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+input[type="text" i] {
+    padding: 1px 2px;
+}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+    padding: 1px 2px;
+}
+
+#signin > p {
+    margin-top: -5px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    text-align: left;
+    font-size: 13px;
+}
+
+#signin > input:last-child {
+    background-color: #1dbf73;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #1dbf73;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#forgot_pw {
+    padding: 0 20px;
+    display: flex;
+    gap: 44px;
+    font-size: 15px;
+}
+
+#forgot_pw {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    color: rgb(165, 165, 165);
+}
+
+#last {
+    border-top: #a4a5a8 1px solid;
+    font-size: 15px;
+}
+
+#signin button {
+    background-color: #1dbf73;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #1dbf73;
+    height: 35px;
+    border-radius: 5px;
+    width: 90%;
+}
