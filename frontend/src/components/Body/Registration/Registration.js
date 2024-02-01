@@ -2,9 +2,10 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import './registration.css';
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
-
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,7 +14,7 @@ const Registration = () => {
         let item = {username, email, password};
         console.log(item);
         axios.post('http://127.0.0.1:8000/api/register',item)
-        .then((res)=>{localStorage.setItem("token", res.data.token);})
+        .then((res)=>{window.alert("Registration Successful"); navigate('/login')})
         .catch((err)=>console.error('Error:', err));
     }
 

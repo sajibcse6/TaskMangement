@@ -5,16 +5,33 @@ import Login from '../Body/Login/Login';
 import Create from '../Body/Task/Create';
 import Update from '../Body/Task/Update';
 import Task from '../Body/Task/Task';
+import { Route, Routes } from 'react-router-dom';
+
 
 const Home = () => {
     return (
-        <div>
-            <Header/>
-            {/* <Login/> */}
-            {/* <Create/> */}
-            {/* <Update/> */}
-            <Task/>
-        </div>
+        <Routes>
+             <Route path='/' element={[
+                <Header/>,
+                <Registration/>
+            ]}/>
+            <Route path='/home' element={[
+                <Header/>,
+                <Task/>
+            ]} />
+            <Route path='/login' element={[
+                <Header/>,
+                <Login/>
+            ]}/>
+            <Route path='/task' element={[
+                <Header/>,
+                <Create />
+            ]}/>
+            <Route path='/update' element={[
+                <Header/>,
+                <Update/>
+            ]}/>
+        </Routes>
     );
 };
 

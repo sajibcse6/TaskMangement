@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import './login.css';
 
@@ -7,12 +8,13 @@ const Login = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-    const register = async() => {
+    const login = async() => {
         let item = {username, password};
         console.log(item);
         axios.post('http://127.0.0.1:8000/api/login',item)
-        .then((res)=>{console.log('Successfully logged in'); localStorage.setItem("token", res.data.token);})
+        .then((res)=>{console.log('Successfully logged in'); localStorage.setItem("token", res.data.token); navigate('/home')})
         .catch((err)=>console.error('Error:', err));
     }
 
@@ -24,7 +26,7 @@ const Login = () => {
                     <div id='signin'>
                         <input type="text" onChange={(event) => { setUsername(event.target.value) }} id="username" placeholder="Enter username" />
                         <input type="password" onChange={(event) => { setPassword(event.target.value) }} id="pw" placeholder="Set Password" /> <br />
-                        <button onClick={register} className="bg-primary">Login</button>
+                        <button onClick={login} className="bg-primary">Login</button>
                     </div>
                 </div>
             </div>

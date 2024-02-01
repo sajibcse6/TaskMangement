@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import './task.css';
 
@@ -7,6 +8,7 @@ const Create = () => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const navigate = useNavigate();
 
     const post = async() => {
         const token = localStorage.getItem("token");
@@ -15,9 +17,16 @@ const Create = () => {
         console.log(item);
         
         axios.post('http://127.0.0.1:8000/api/tasks',item)
-        .then((res)=>{console.log('Task Created Successfully')})
+        .then((res)=>{console.log('Task Created Successfully'); navigate('/home')})
         .catch((err)=>console.error('Error:', err));
     }
+    const checkauth = () => {
+        const auth = localStorage.getItem('token');
+        if(!auth) window.location.href = '/';
+    }
+    useEffect(() => {
+        checkauth();
+    }, []);
 
     return (
         <div className='contact-form'>
